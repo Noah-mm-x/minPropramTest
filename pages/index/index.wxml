@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view id="index">
     <view class="title">你敢信这就是首页</view>
-    <image class="img" src="{{userInfo.avatarUrl}}"></image>
+    <!-- <image class="img" src="{{userInfo.avatarUrl}}"></image> -->
+    <canvas class="share-canvas" style="width: 300px; height: 400px;" canvas-id="shareCanvas"></canvas>
 </view>

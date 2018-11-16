@@ -2,8 +2,9 @@
 //获取应用实例
 const app = getApp();
 
-import regeneratorRuntime from '../../utils/regenerator-runtime/runtime'
+import regeneratorRuntime from '../../utils/runtime'
 import Promise from '../../utils/es6-promise';
+import { wxGetImageInfo } from '../../utils/wxApi'
 
 Page({
     data: {
@@ -40,8 +41,29 @@ Page({
         }
 	},
 	onShow(){
-		this.test();
-	},
+        // this.test();
+        this.handleDrawCanvas();
+    },
+    handleDrawCanvas(){
+        const bkImgPromise = wxGetImageInfo('https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1122803715,1770953277&fm=27&gp=0.jpg');
+        const conImgPromise = wxGetImageInfo('https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2181180820,644263992&fm=27&gp=0.jpg')
+        Promise.all([bkImgPromise,conImgPromise]).then(([bk,con])=>{
+            console.log(11);
+            const ctx = wx.createCanvasContext("shareCanvas");
+            const canvasWidth = 300
+            const canvasHeight = 400
+
+            ctx.save();
+            ctx.drawImage(bk.path,0,0,canvasWidth,canvasHeight)
+            ctx.restore();
+
+            ctx.save();
+            ctx.drawImage(con.path,0,0,100,100)
+            ctx.restore();
+
+            ctx.draw();
+        })
+    },
 	doubleNum(num){
 		return new Promise((resolve,reject)=>{
 			setTimeout(() => {
