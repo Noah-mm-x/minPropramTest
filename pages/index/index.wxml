@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view id="index">
+    <view class="title">你敢信这就是首页</view>
+    <image class="img" src="{{userInfo.avatarUrl}}"></image>
+</view>

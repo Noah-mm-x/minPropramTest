@@ -1,0 +1,88 @@
+/**app.wxss**/
+page {
+    height: 100%;
+}
+
+/* 容器 */
+.container {
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+page,
+view,
+scroll-view,
+swiper,
+movable-area,
+cover-view,
+text,
+icon,
+rich-text,
+progress,
+button,
+checkbox-group,
+checkbox,
+form,
+input,
+label,
+picker,
+picker-view,
+radio-group,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+image,
+video,
+live-player,
+live-pusher,
+open-data,
+web-view {
+    box-sizing: border-box;
+}
+
+/* 去掉小程序默认样式 */
+button {
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: initial;
+}
+button::after {
+    border: none;
+}
+
+button.button-hover {
+    background-color: transparent;
+    opacity: 1;
+}
+
+/* 链接点击样式 */
+.navigator-hover {
+    background: inherit;
+    opacity: 1;
+}
+
+/* 清除浮动 */
+.clearfix {
+    display: block;
+    zoom: 1;
+}
+.clearfix:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/* 省略号 */
+.dot {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
